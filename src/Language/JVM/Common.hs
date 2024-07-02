@@ -180,8 +180,8 @@ data MethodKey = MethodKey {
 ppMethodKey :: MethodKey -> Doc ann
 ppMethodKey (MethodKey name params ret) =
        pretty name
-    <> (parens . commas . map ppType) params
-    <> maybe "void" ppType ret
+    Text.PrettyPrint.<> (parens . commas . map ppType) params
+    Text.PrettyPrint.<> maybe "void" ppType ret
   where commas = sep . punctuate comma
 
 -- | A value stored in the constant pool.
